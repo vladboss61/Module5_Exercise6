@@ -2,6 +2,7 @@
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Products from "./pages/Products";
+import User from "./pages/User";
 
 // other
 import {FC} from "react";
@@ -36,5 +37,12 @@ export const routes: Array<Route> = [
         path: '/products',
         enabled: true,
         component: Products
+    },
+    {
+        key: 'user-route',
+        title: 'User',
+        path: '/user/:id',
+        enabled: false,
+        component: User
     }
 ]

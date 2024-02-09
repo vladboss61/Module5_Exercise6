@@ -3,6 +3,13 @@ import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { MyFormData } from '../../types/types';
 
+
+type Info = {
+  name: string;
+  role: string;
+  age: number;
+}
+
 const NoFormsComponent = () => {
     const [noFormState, setNoFormState] = useState<MyFormData>(
       {
@@ -21,7 +28,9 @@ const NoFormsComponent = () => {
             <Form.Control
                 type="email"
                 value={noFormState.email}
-                onChange={(ev) => setNoFormState(prevState => { return { ...prevState, email: ev.target.value }})}
+                onChange={(ev) => setNoFormState(prevState => { 
+                  console.log(ev.target.value)
+                  return { ...prevState, email: ev.target.value }})}
                 placeholder="Enter email"
                 name='femail'/>
             <Form.Text className="text-muted">
@@ -48,14 +57,14 @@ const NoFormsComponent = () => {
                 //onChange={(ev) => setNoFormState(prevState => { return { ...prevState, checkbox: ev.target.checked }})} // the same below
                 onChange={(ev) => {
                   setNoFormState(prevState => {
-                    const temp = 
+                    const temp =
                       {
                         email: prevState.email,
                         password: prevState.password,
                         checkbox: prevState.checkbox
                       }
                       temp.checkbox =  ev.target.checked
-                      return temp
+                      return temp;
                   })
                 }}
                 name='fcheckbox'

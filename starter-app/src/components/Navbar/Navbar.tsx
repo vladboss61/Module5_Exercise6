@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { routes } from "../routes";
+import { routes } from "../../routes";
 import { NavLink } from "react-router-dom";
 
 const Navbar: FC = (): ReactElement => {
@@ -74,7 +74,7 @@ const Navbar: FC = (): ReactElement => {
               }}
             >
               {routes.map((page) => (
-                <Link
+              !!page.enabled && <Link
                   key={page.key}
                   component={NavLink}
                   to={page.path}
@@ -108,7 +108,7 @@ const Navbar: FC = (): ReactElement => {
               }}
             >
               {routes.map((page) => (
-                <Link
+               !!page.enabled && <Link
                   key={page.key}
                   component={NavLink}
                   to={page.path}
